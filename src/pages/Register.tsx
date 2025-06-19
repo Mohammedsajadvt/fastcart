@@ -1,36 +1,38 @@
-import { Box, Container, Typography, Link, Button } from "@mui/material";
+import { Box, Container, Typography, Link, Button, Divider } from "@mui/material";
 import { styled } from "@mui/system"
 import FormInput from "../components/FormInput";
-
+import google from "../assets/Google.png";
+import facebook from "../assets/Facebook.png";
 const Register = () => {
     const Title = styled(Typography)(() => ({
         display: "flex",
         color: "#5A607F",
         fontSize: "14px",
-        fontWeight:"400"
+        fontWeight: "400",
+        marginTop: "15px"
     }))
     return (
         <Container maxWidth="xs" sx={{ background: '#fff', borderRadius: 2, p: 4 }}>
-            <Box sx={{ px: 4, justifyItems: "center" }}>
-                <Typography variant="h5" align="center" gutterBottom fontFamily="Inter" fontSize={30} fontWeight="bold" sx={{ mt: 1 }}>
+            <Box sx={{ px: { xs: 2, sm: 4 }, justifyItems: "center" }}>
+                <Typography variant="h5" align="center" gutterBottom fontFamily="Inter" fontSize={30} fontWeight="bold" sx={{ mt: 1, fontSize: { xs: 24, sm: 30 } }}>
                     Create an Account
                 </Typography>
                 <Typography
                     variant="subtitle2"
                     gutterBottom
-                    sx={{ fontSize: 16, fontWeight: 400, color: "#5A607F" }}
+                    sx={{ fontSize: 15, fontWeight: 400, color: "#5A607F" }}
                 >
                     Have an Account?{" "}
                     <Link
-                        href="/login"
+                        href="/"
                         underline="none"
-                        sx={{ color:"#1E5EFF",fontSize: 16, fontWeight: 400 }}
+                        sx={{ color: "#1E5EFF", fontSize: 15, fontWeight: 400 }}
                     >
                         Sign In
                     </Link>
                 </Typography>
 
-                <Box component="form" autoComplete="off"  noValidate sx={{ mt: 5 }}>
+                <Box component="form" autoComplete="off" noValidate sx={{ mt: 5, display: 'flex', flexDirection: 'column' }}>
                     <Title>Email</Title>
                     <FormInput
                         label="Enter Email Address"
@@ -48,22 +50,65 @@ const Register = () => {
                             boxShadow: 'none',
                         },
                         textTransform: "none",
-                        height:"40px"
+                        height: "40px"
                     }}>
                         Create Account
                     </Button>
                 </Box>
-                <Box sx={{mt:3}}>
-                    <Typography variant="subtitle2" sx={{color:"#5A607F",fontSize:"14px",fontWeight:"400"}}>
-                    By creating account, you agree to our
-                </Typography>
-                <Link
+                <Box sx={{ mt: 3 }}>
+                    <Typography variant="subtitle2" sx={{ color: "#5A607F", fontSize: "14px", fontWeight: "400" }}>
+                        By creating account, you agree to our
+                    </Typography>
+                    <Link
                         href="/register"
                         underline="none"
-                        sx={{color:"#1E5EFF",fontSize:"14px",fontWeight:"400"}}
+                        sx={{ color: "#1E5EFF", fontSize: "14px", fontWeight: "400" }}
                     >
                         Terms of Service
                     </Link>
+                </Box>
+                <Divider sx={{ my: 3, borderColor: "#D7DBEC", borderBottomWidth: 1, width: '100%', }} />
+                <Typography variant="subtitle2" sx={{ color: "#5A607F", fontSize: "14px", fontWeight: "400" }}>
+                    Or create an account using:
+                </Typography>
+                <Box sx={{ mt: 3 }}>
+                    <Button fullWidth variant="outlined" startIcon={
+                        <img
+                            src={google}
+                            alt="Google"
+                            style={{ width: 20, height: 20, objectFit: "contain" }}
+                        />
+                    } sx={{
+                        borderColor: "#D7DBEC",
+                        color: "#1E5EFF",
+                        textTransform: "none",
+                        height: "40px",
+                        '&:focus': {
+                            outline: 'none',
+                            boxShadow: 'none',
+                            borderColor: "#D7DBEC",
+                        },
+                    }}>Continue with Google</Button>
+                    <Button fullWidth variant="outlined" startIcon={
+                        <img
+                            src={facebook}
+                            alt="facebook"
+                            style={{ width: 20, height: 20, objectFit: "contain" }}
+                        />
+                    }
+                        sx={{
+                            borderColor: "#D7DBEC",
+                            color: "#1E5EFF",
+                            '&:focus': {
+                                outline: 'none',
+                                boxShadow: 'none',
+                                borderColor: "#D7DBEC",
+                            },
+                            textTransform: "none",
+                            height: "40px",
+                            mt: 1
+                        }}
+                    >Continue with Facebook</Button>
                 </Box>
             </Box>
         </Container>

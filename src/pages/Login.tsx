@@ -1,16 +1,10 @@
 import { Box, Container, Typography, Link, Button, Divider, Checkbox } from "@mui/material";
-import { styled } from "@mui/system"
 import FormInput from "../components/FormInput";
 import google from "../assets/Google.png";
 import facebook from "../assets/Facebook.png";
+import Title from "../components/Title";
 const Login = () => {
-    const Title = styled(Typography)(() => ({
-        display: "flex",
-        color: "#5A607F",
-        fontSize: "14px",
-        fontWeight: "400",
-        marginTop: "15px"
-    }))
+
     return (
         <Container maxWidth="xs" sx={{ background: '#fff', borderRadius: 2, p: 4 }}>
             <Box sx={{ px: { xs: 2, sm: 4 }, justifyItems: "center" }}>
@@ -43,7 +37,7 @@ const Login = () => {
                         label="Create Password"
                         type="password"
                     />
-                    <Box sx={{ display: "flex", alignItems: "center", justifyContent: "start",mt:1,mb:1.5 }}>
+                    <Box sx={{ display: "flex", alignItems: "center", justifyContent: "start", mt: 1, mb: 1.5 }}>
                         <Checkbox
                             size="small"
                             sx={{
@@ -77,14 +71,16 @@ const Login = () => {
                             boxShadow: 'none',
                         },
                         textTransform: "none",
-                        height: "40px"
+                        height: "40px",
+                        fontWeight: "400"
+
                     }}>
                         Create Account
                     </Button>
                 </Box>
                 <Box sx={{ mt: 3 }}>
                     <Link
-                        href="/register"
+                        href="/reset"
                         underline="none"
                         sx={{ color: "#1E5EFF", fontSize: "14px", fontWeight: "400" }}
                     >
@@ -107,6 +103,7 @@ const Login = () => {
                         color: "#1E5EFF",
                         textTransform: "none",
                         height: "40px",
+                        fontWeight:"400",
                         '&:focus': {
                             outline: 'none',
                             boxShadow: 'none',
@@ -130,6 +127,7 @@ const Login = () => {
                             },
                             textTransform: "none",
                             height: "40px",
+                            fontWeight:"400",
                             mt: 1,
 
                         }}

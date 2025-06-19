@@ -1,16 +1,9 @@
 import { Box, Container, Typography, Link, Button, Divider } from "@mui/material";
-import { styled } from "@mui/system"
+import Title from "../components/Title";
 import FormInput from "../components/FormInput";
 import google from "../assets/Google.png";
 import facebook from "../assets/Facebook.png";
 const Register = () => {
-    const Title = styled(Typography)(() => ({
-        display: "flex",
-        color: "#5A607F",
-        fontSize: "14px",
-        fontWeight: "400",
-        marginTop: "15px"
-    }))
     return (
         <Container maxWidth="xs" sx={{ background: '#fff', borderRadius: 2, p: 4 }}>
             <Box sx={{ px: { xs: 2, sm: 4 }, justifyItems: "center" }}>
@@ -50,7 +43,9 @@ const Register = () => {
                             boxShadow: 'none',
                         },
                         textTransform: "none",
-                        height: "40px"
+                        height: "40px",
+                        fontWeight: "400"
+
                     }}>
                         Create Account
                     </Button>
@@ -83,6 +78,7 @@ const Register = () => {
                         color: "#1E5EFF",
                         textTransform: "none",
                         height: "40px",
+                        fontWeight:"400",
                         '&:focus': {
                             outline: 'none',
                             boxShadow: 'none',
@@ -106,7 +102,8 @@ const Register = () => {
                             },
                             textTransform: "none",
                             height: "40px",
-                            mt: 1
+                            mt: 1,
+                            fontWeight:"400"
                         }}
                     >Continue with Facebook</Button>
                 </Box>

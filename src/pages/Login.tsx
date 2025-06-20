@@ -1,10 +1,20 @@
 import { Box, Container, Typography, Link, Button, Divider, Checkbox } from "@mui/material";
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from '../features/auth/authSlice';
+import type { AppDispatch } from "../app/store";
 import FormInput from "../components/FormInput";
 import google from "../assets/Google.png";
 import facebook from "../assets/Facebook.png";
 import Title from "../components/Title";
 const Login = () => {
+    const dispatch = useDispatch<AppDispatch>();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
+    const handleLogin = () => {
+        dispatch(login({ email, password }));
+    }
     return (
         <Container maxWidth="xs" sx={{ background: '#fff', borderRadius: 2, p: 4 }}>
             <Box sx={{ px: { xs: 2, sm: 4 }, justifyItems: "center" }}>
@@ -31,11 +41,15 @@ const Login = () => {
                     <FormInput
                         label="Enter Email Address"
                         type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                     <Title>Password</Title>
                     <FormInput
                         label="Create Password"
                         type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                     <Box sx={{ display: "flex", alignItems: "center", justifyContent: "start", mt: 1, mb: 1.5 }}>
                         <Checkbox
@@ -64,7 +78,7 @@ const Login = () => {
                         </Typography>
                     </Box>
 
-                    <Button fullWidth variant="contained" sx={{
+                    <Button onClick={handleLogin} fullWidth variant="contained" sx={{
                         background: "#1E2753", color: "#fff",
                         '&:focus': {
                             outline: 'none',
@@ -103,7 +117,7 @@ const Login = () => {
                         color: "#1E5EFF",
                         textTransform: "none",
                         height: "40px",
-                        fontWeight:"400",
+                        fontWeight: "400",
                         '&:focus': {
                             outline: 'none',
                             boxShadow: 'none',
@@ -127,7 +141,7 @@ const Login = () => {
                             },
                             textTransform: "none",
                             height: "40px",
-                            fontWeight:"400",
+                            fontWeight: "400",
                             mt: 1,
 
                         }}
